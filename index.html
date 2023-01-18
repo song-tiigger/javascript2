@@ -4,9 +4,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>마루</title>
+  <title>뽀모도로 타이머</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="./js/jquery.js"></script>
+  <script src="./js/index.js"></script>
 </head>
 <body>
+  <div class="container">
+    <div class="wrapper">
+
+      <h1>Pomodoro Timer</h1>
   
+      <div class="input-time-wrap">
+        <div>집중할 시간을 설정해보세요!</div>
+        <input type="text" id="input_time"> 
+        <button type="submit">확인</button>
+      </div>
+  
+      <div class="timer-wrap">
+        <div class="circle1"><span class="line"></span></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+      </div>
+  
+      <div class="btn-wrap">
+        <button>5분</button><button>10분</button><button>15분</button>
+        <button>15분</button><button>20분</button><button>25분</button>
+      </div>
+
+    </div> <!-- wrapper -->
+  </div> <!-- container -->
 </body>
 </html>
