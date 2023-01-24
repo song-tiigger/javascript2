@@ -7,7 +7,7 @@ body {
 
 body {
   width: 100%;
-  background-color: #D6E4E5;
+  background-color: #333;
 }
 
 button {
@@ -21,37 +21,113 @@ button {
 }
 
 .wrapper {
-  // width: 520px;
-  margin: 0 auto;
+  width: 420px;
+  // margin: 0 auto;
+  text-align: center;
+  background-color: rgb(97, 75, 75);
 
   h1 {
     display: inline-block;
     color: #EB6440;
   }
 
-  .input-time-wrap {
-    div {
-      color: #333;
-    }
+  .category {
+    display: flex;
+    justify-content: space-around;
+    width: 160px;
+    height: 48px;
+    margin: 0 auto;
+    padding: 0 10px;
+    border-radius: 24px;
+    border: 2px solid rgba(236, 231, 213, .6);
+    box-shadow: 0 4px 8px 2px rgba(236, 231, 213, 0.5);
+    -webkit-box-shadow: 0 4px 8px 2px rgba(236, 231, 213, 0.5);
 
-    // input {
-    //   width: 140px;
-    //   height: 40px;
-    //   padding: 4px 10px;
-    //   border-radius: 6px;
-    //   border: 1px solid #fff;
-    //   font-size: 20px;
-    //   background-color: #EFF5F5;
-    // }
 
     button {
-      width: 40px;
-      height: 30px;
-      font-size: 20px;
+      background: none;
+      border: 0;
+      font-size: 16px;
+      color: #ece7d5;
+    }
+  
+
+    .active {
+      font-weight: 600;
+      color: #EB6440;
+    }
+  }
+
+  .timer {
+    margin: 60px 0;
+    color: #ece7d5;
+
+    .circle {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 2px solid rgba(236, 231, 213, .6);
+      box-shadow: 0 0 20px 12px rgba(236, 231, 213, 0.5);
+      -webkit-box-shadow: 0 0 20px 12px rgba(236, 231, 213, 0.5); 
+
+      .time {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 280px;
+        // background-color: pink;
+
+        span {
+          font-size: 54px;
+
+          &:nth-child(2) {
+            margin: 0 8px;
+          }
+        }
+      }
+    } //circle
+
+  }
+
+  .btn-wrap {
+    display: flex;
+    background-color: aliceblue;
+
+
+    .start-reset-box {
+      position: relative;
+      background-color: aliceblue;
+
+      #reset {
+        position: absolute;
+        top: 0;
+      }
+    }
+
+    button {
+      display: block;
+      width: 80px;
+      height: 40px;
+      // margin: 0 auto;
       border-radius: 6px;
       border: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      background-color: #000; // '더 밝게' 속성 주기
+  
+      &:hover {
+      background-color: #EB6440;
+      }
     }
-  } //input-time-wrap
+
+
+  }
+
+
+
 
   .timer-wrap {
     position: relative;
@@ -59,33 +135,10 @@ button {
     height: 460px;
     margin: 14px 0;
     padding: 20px;
-    border: 14px solid #000;
+    border: 14px solid #EB6440;
     border-radius: 100px;
-    box-shadow: inset 0 0 3px 3px rgba(50, 50, 50, 0.3);
 
-    .circle1 {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 4px solid #333;
-      background-color: #fff;
-
-      & .line {
-        position: absolute;
-        top: calc(50% - 1.6px);
-        width: 100%;
-        background-color: #333;
-      }
-
-      & .line.thin {
-        height: 1px;
-      }
-
-      & .line.thick {
-        height: 3px;
-      }
-    } //circle1
+    
 
     .circle2 {
       position: absolute;
@@ -118,23 +171,7 @@ button {
     }
   } //timer-wrap
 
-  #start {
-    display: block;
-    width: 200px;
-    height: 40px;
-    // margin: 0 auto;
-    border-radius: 6px;
-    border: 0;
-    font-size: 20px;
-    font-weight: 600;
-    color: #fff;
-    background-color: #EB6440;
-
-
-    &:hover {
-      background-color: #000; // '더 밝게' 속성 주기
-    }
-  }
+ 
   // .btn-wrap {
   //   button {
   //     width: 60px;

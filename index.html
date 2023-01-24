@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,52 +8,51 @@
   <title>뽀모도로 타이머</title>
   <link rel="stylesheet" href="./css/index.css">
   <script src="./js/jquery.js"></script>
-  <script src="./js/index.js"></script>
 </head>
+
 <body>
   <div class="container">
     <div class="wrapper">
       <h1>Pomodoro Timer</h1>
-  
-      <div class="input-time-wrap">
-        <div>집중할 시간을 설정해보세요!</div>
-        <div>5분 단위로 설정할 수 있습니다.</div>
-        
-        <!-- <input type="text" id="input_time">  -->
-        
-        <button type="button" id="minus_btn">-</button>
-        <span id="five_minuite">5</span>분
-        <button id="plus_btn">+</button>
+      <div class="timer-info">25분 동안 집중하고 5분동안 휴식하세요.</div>
 
-        <!-- <button type="submit">확인</button> -->
-
+      <div class="category">
+        <button id="work">집중</button>
+        <button id="break">휴식</button>
       </div>
 
-      <div class="timer-wrap">
-        <div class="circle1"></div>
-        <!-- <div class="circle2"></div> -->
-
-        <div class="time-wrap">
-          <div class="time">25:00</div>
+      <div class="timer">
+        <div class="circle">
+          <div class="time">
+            <span id="minutes"></span>
+            <span>:</span>
+            <span id="seconds"></span>
+          </div>
         </div>
-
-
-
-
-
-
-
       </div>
 
-      <button id="start">시작!</button>
+      <div class="btn-wrap">
+        <div class="start-reset-box">
+          <button id="start">start</button> 
+          <button id="reset">reset</button> 
+        </div>
+        <button id="pause">pause</button>
+      </div>
 
-  
-      <!-- <div class="btn-wrap">
-        <button>5분</button><button>10분</button><button>15분</button>
-        <button>15분</button><button>20분</button><button>25분</button>
+
+      <!-- <div class="controls">
+        <button id="start" onclick="start()"><i class="fa-solid fa-play"></i></button>
+
+        <a id="reset" href="./"><i class="fa-solid fa-arrow-rotate-left"></i></a>
       </div> -->
+    </div>
 
-    </div> <!-- wrapper -->
+
+  </div> <!-- wrapper -->
   </div> <!-- container -->
+
+  <script src="./js/index.js"></script>
+
 </body>
+
 </html>
