@@ -10,10 +10,6 @@ body {
   background-color: #333;
 }
 
-button {
-  cursor: pointer;
-}
-
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -24,11 +20,15 @@ button {
   width: 420px;
   // margin: 0 auto;
   text-align: center;
-  background-color: rgb(97, 75, 75);
 
   h1 {
     display: inline-block;
     color: #EB6440;
+  }
+
+  h1 + div {
+    margin: 20px 0 30px 0;
+    color: #ece7d5;
   }
 
   .category {
@@ -43,7 +43,6 @@ button {
     box-shadow: 0 4px 8px 2px rgba(236, 231, 213, 0.5);
     -webkit-box-shadow: 0 4px 8px 2px rgba(236, 231, 213, 0.5);
 
-
     button {
       background: none;
       border: 0;
@@ -51,7 +50,6 @@ button {
       color: #ece7d5;
     }
   
-
     .active {
       font-weight: 600;
       color: #EB6440;
@@ -59,13 +57,14 @@ button {
   }
 
   .timer {
-    margin: 60px 0;
+    margin: 80px 0;
     color: #ece7d5;
 
     .circle {
       position: relative;
       width: 280px;
       height: 280px;
+      margin: 0 auto;
       border-radius: 50%;
       border: 2px solid rgba(236, 231, 213, .6);
       box-shadow: 0 0 20px 12px rgba(236, 231, 213, 0.5);
@@ -77,108 +76,70 @@ button {
         justify-content: center;
         align-items: center;
         height: 280px;
-        // background-color: pink;
 
         span {
           font-size: 54px;
 
           &:nth-child(2) {
-            margin: 0 8px;
+            margin: 0 10px;
           }
         }
-      }
+      } //time
     } //circle
-
-  }
+  } //timer
 
   .btn-wrap {
+    position: relative;
     display: flex;
-    background-color: aliceblue;
-
-
-    .start-reset-box {
-      position: relative;
-      background-color: aliceblue;
-
-      #reset {
-        position: absolute;
-        top: 0;
-      }
-    }
+    justify-content: center;
 
     button {
       display: block;
-      width: 80px;
+      width: 60px;
       height: 40px;
-      // margin: 0 auto;
       border-radius: 6px;
       border: 0;
+      cursor: pointer;
       font-size: 20px;
       font-weight: 600;
-      color: #fff;
-      background-color: #000; // '더 밝게' 속성 주기
-  
-      &:hover {
-      background-color: #EB6440;
+      background-color: #ece7d5;
+
+      img {
+        margin: 0 auto;
       }
+    } //button
+
+    #pause {
+      display: none;
     }
 
-
-  }
-
-
-
-
-  .timer-wrap {
-    position: relative;
-    width: 460px;
-    height: 460px;
-    margin: 14px 0;
-    padding: 20px;
-    border: 14px solid #EB6440;
-    border-radius: 100px;
-
-    
-
-    .circle2 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 80%;
-      height: 80%;
-      border-radius: 50%;
-      background-color: #fff;
-      transform: translate(-50%, -50%);
+    #reset {
+      margin-left: 10px;
     }
 
-    .time-wrap {
-      justify-content: space-between;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 80%;
-      height: 80%;
-      border-radius: 50%;
-      background-color: #EB6440;
-      transform: translate(-50%, -50%);
+    // #start {
+    //   background-color: #EB6440;
 
-      .time {
-        text-align: center;
-        line-height: 348px;
-        font-size: 50px;
-        font-weight: 600;
-      }
-    }
-  } //timer-wrap
+    //   &:hover {
+    //     background-color: #f18d72;
+    //     transition: all 0.6s;
+    //   }
+    // }
+    // #pause {
+    //   background-color: #40a7eb;
 
- 
-  // .btn-wrap {
-  //   button {
-  //     width: 60px;
-  //     height: 60px;
-  //     border-radius: 40%;
-  //     border: 1px solid #666;
-  //   }
-  // }
-} //wrapper
+    //   &:hover {
+    //     background-color: #4497ce;
+    //     transition: all 0.6s;
+    //   }
+    // }
+    // #reset {
+    //   background-color: #739297;
 
+    //   &:hover {
+    //     background-color: #91abaf;
+    //     transition: all 0.6s;
+    //   }
+    // }
+  } //btn-wrap
+}

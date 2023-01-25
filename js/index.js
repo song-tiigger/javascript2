@@ -1,117 +1,77 @@
-
-
-// window.onload = function() {
-//     // 버튼 클릭시 증가, 감소
-//     const $plus_btn = document.getElementById("plus_btn");
-//     const $minus_btn = document.getElementById("minus_btn");
-
-//     let num = 0;
-
-//     $plus_btn.addEventListener('click', e => {
-//         num += 5;
-//         document.getElementById("minuite").value = num;
-
-//         if(num > 60) {
-//             alert('최대 60분까지 설정할 수 있습니다.');
-//             $plus_btn.removeEventListener('click', arguments.callee);
-//         }
-//     })
-
-//     $minus_btn.addEventListener('click', e => {
-//         num -= 5;
-//         document.getElementById("minuite").value = num;
-//     })
-// }
-
-
-
-
-
-// variables
-
+// 변수
 let $work = document.getElementById('work');
 let $break = document.getElementById('break');
 let $minutes = document.getElementById('minutes');
 let $seconds = document.getElementById('seconds');
-const $start = document.getElementById('start'); 
-const $pause = document.getElementById('pause'); 
-const $reset = document.getElementById('reset'); 
+const $start = document.getElementById('start');
+const $pause = document.getElementById('pause');
+const $reset = document.getElementById('reset');
+const $plus_btn = document.getElementById("plus_btn");
+const $minus_btn = document.getElementById("minus_btn");
 
+window.onload = () => {
+  $minutes.innerHTML = workTime;
+  $seconds.innerHTML = "00";
+
+  $work.classList.add('active');
+
+  $start.addEventListener('click', startTimer);
+  $reset.addEventListener('click', resetTimer);
+  $pause.addEventListener('click', () => {
+    clearInterval(timeInterval);
+    document.getElementById('start').style.display = "block";
+    document.getElementById('pause').style.display = "none";
+  });
+}
 
 let workTime = 25;
 let breakTime = 5;
 
-
-// display
-window.onload = () => {
-    $minutes.innerHTML = workTime;
-    $seconds.innerHTML = "00";
-
-    $work.classList.add('active');
-
-    $start.addEventListener('click', startTimer);
-    // $reset.addEventListener('click', resetTimer);
-}
-
-// start timer
 function startTimer() {
-    // change button
-    document.getElementById('start').style.display = "none";
-    document.getElementById('reset').style.display = "block";
-    
-    // change the time
-    $seconds = 59;
+  // start, pause 버튼 토글 기능
+  document.getElementById('start').style.display = "none";
+  document.getElementById('pause').style.display = "block";
 
-    let workMinutes = workTime - 1;
-    let breakMinutes = breakTime - 1;
+  $seconds = 59;
 
-    breakCount = 0;
+  let workMinutes = workTime - 1;
+  let breakMinutes = breakTime - 1;
 
-    // countdown
-    let timerFunction = () => {
-        //change the display
-        document.getElementById('minutes').innerHTML = workMinutes;
-        document.getElementById('seconds').innerHTML = $seconds;
+  breakCount = 0;
 
-        // start
-        $seconds = $seconds - 1;
+  timeInterval = setInterval(() => {
+    document.getElementById('minutes').innerHTML = ('00'+ workMinutes).slice(-2);
+    document.getElementById('seconds').innerHTML = ('00'+ $seconds).slice(-2);
 
-        if($seconds === 0) {
-            workMinutes = workMinutes - 1;
-            
-            if(workMinutes === -1 ){
-                if(breakCount % 2 === 0) {
-                    // start break
-                    workMinutes = breakMinutes;
-                    breakCount++;
+    $seconds = $seconds - 1;
 
-                    $work.classList.remove('active');
-                    $break.classList.add('active');
-                } else {
-                    // continue work
-                    workMinutes = workTime;
-                    breakCount++;
+    if ($seconds === 0) {
+      workMinutes = workMinutes - 1;
 
-                    // change the painel
-                    $break.classList.remove('active');
-                    $work.classList.add('active');
-                }
-            }
-            $seconds = 59;
+      if (workMinutes === -1) {
+        if (breakCount % 2 === 0) {
+          workMinutes = breakMinutes;
+          breakCount++;
+
+          $work.classList.remove('active');
+          $break.classList.add('active');
+        } else {
+          workMinutes = workTime;
+          breakCount++;
+
+          $break.classList.remove('active');
+          $work.classList.add('active');
         }
+      }
+      $seconds = 59;
     }
-
-    // start countdown
-    setInterval(timerFunction, 1000);
+  }, 1000)
 }
-
 
 function pauseTimer() {
-
+  clearInterval(timeInterval);
 }
 
 function resetTimer() {
-    clearInterval(timerFunction);
-    $minutes.innerHTML = 25
-    $seconds.innerHTML = "00";
+  location.reload();
 }
