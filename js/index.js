@@ -9,6 +9,7 @@ const $reset = document.getElementById('reset');
 const $plus_btn = document.getElementById("plus_btn");
 const $minus_btn = document.getElementById("minus_btn");
 
+// 즉시 실행, 버튼 이벤트
 window.onload = () => {
   $minutes.innerHTML = workTime;
   $seconds.innerHTML = "00";
@@ -17,11 +18,6 @@ window.onload = () => {
 
   $start.addEventListener('click', startTimer);
   $reset.addEventListener('click', resetTimer);
-  $pause.addEventListener('click', () => {
-    clearInterval(timeInterval);
-    document.getElementById('start').style.display = "block";
-    document.getElementById('pause').style.display = "none";
-  });
 }
 
 let workTime = 25;
@@ -30,14 +26,13 @@ let breakTime = 5;
 function startTimer() {
   // start, pause 버튼 토글 기능
   document.getElementById('start').style.display = "none";
-  document.getElementById('pause').style.display = "block";
+  document.getElementById('reset').style.display = "block";
 
   $seconds = 59;
 
   let workMinutes = workTime - 1;
   let breakMinutes = breakTime - 1;
-
-  breakCount = 0;
+  let breakCount = true;
 
   timeInterval = setInterval(() => {
     document.getElementById('minutes').innerHTML = ('00'+ workMinutes).slice(-2);
@@ -46,18 +41,20 @@ function startTimer() {
     $seconds = $seconds - 1;
 
     if ($seconds === 0) {
+      // '초'가 0이 되면 '분'이 1만큼 감소
       workMinutes = workMinutes - 1;
 
-      if (workMinutes === -1) {
-        if (breakCount % 2 === 0) {
+      // 집중, 휴식 타이머 자동 전환
+      if (workMinutes === -1) { // 25분이 다 되어서 -1이 되면
+        if (breakCount == true) { 
           workMinutes = breakMinutes;
-          breakCount++;
+          breakCount = false;
 
           $work.classList.remove('active');
           $break.classList.add('active');
         } else {
           workMinutes = workTime;
-          breakCount++;
+          breakCount = true;
 
           $break.classList.remove('active');
           $work.classList.add('active');
@@ -66,10 +63,6 @@ function startTimer() {
       $seconds = 59;
     }
   }, 1000)
-}
-
-function pauseTimer() {
-  clearInterval(timeInterval);
 }
 
 function resetTimer() {

@@ -71,10 +71,12 @@ body {
 
 .wrapper {
   width: 420px;
+  margin: 0 auto;
   text-align: center;
 }
 .wrapper h1 {
   display: inline-block;
+  margin-top: 40px;
   color: #EB6440;
 }
 .wrapper h1 + div {
@@ -149,9 +151,6 @@ body {
 .wrapper .btn-wrap button img {
   margin: 0 auto;
 }
-.wrapper .btn-wrap #pause {
-  display: none;
-}
 .wrapper .btn-wrap #reset {
-  margin-left: 10px;
+  display: none;
 }/*# sourceMappingURL=index.css.map */

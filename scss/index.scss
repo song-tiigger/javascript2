@@ -18,11 +18,12 @@ body {
 
 .wrapper {
   width: 420px;
-  // margin: 0 auto;
+  margin: 0 auto;
   text-align: center;
 
   h1 {
     display: inline-block;
+    margin-top: 40px;
     color: #EB6440;
   }
 
@@ -109,37 +110,8 @@ body {
       }
     } //button
 
-    #pause {
+    #reset {
       display: none;
     }
-
-    #reset {
-      margin-left: 10px;
-    }
-
-    // #start {
-    //   background-color: #EB6440;
-
-    //   &:hover {
-    //     background-color: #f18d72;
-    //     transition: all 0.6s;
-    //   }
-    // }
-    // #pause {
-    //   background-color: #40a7eb;
-
-    //   &:hover {
-    //     background-color: #4497ce;
-    //     transition: all 0.6s;
-    //   }
-    // }
-    // #reset {
-    //   background-color: #739297;
-
-    //   &:hover {
-    //     background-color: #91abaf;
-    //     transition: all 0.6s;
-    //   }
-    // }
   } //btn-wrap
-}
+} //wrapper
